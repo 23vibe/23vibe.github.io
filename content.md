@@ -6,7 +6,7 @@ free underground diy community. 23vibe 23coding ^^
 
 we host promo and info websites for free. for djs, promoters, soundsystems, clubs, squats, producers, pubs and all open-minded people.
 
-no fees. no ads. no corporate nonsense. just the music and the community.
+no fees. no ads. no commercial nonsense. just the music and the community.
 
 everyone is welcome to join. create your page, share your sound, connect with the underground.
 
