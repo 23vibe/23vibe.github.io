@@ -175,7 +175,7 @@ main#central-content::-webkit-scrollbar-thumb {
 
 /* --- Category / page list items --- */
 .tag-item,
-.page-item {
+#content-area a.page-item {
     display: block;
     padding: 4px 0;
     cursor: pointer;
@@ -185,8 +185,9 @@ main#central-content::-webkit-scrollbar-thumb {
 }
 
 .tag-item:hover,
-.page-item:hover {
+#content-area a.page-item:hover {
     color: var(--green);
+    border: none;
     padding-left: 8px;
 }
 

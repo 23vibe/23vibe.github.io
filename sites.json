@@ -1,27 +1,17 @@
 [
     {
-        "name": "Berlin Tekno Collective",
-        "repo": "berlin-tekno-collective",
-        "tags": ["soundsystem", "berlin", "techno", "collective"]
+        "name": "Maxim Dokalenko",
+        "repo": "maxim-dokalenko",
+        "tags": ["DJ", "promoter", "prague", "bratislava", "tekno", "breakcore", "speedcore", "radio23cz", "mashup"]
     },
     {
-        "name": "Squat Party London",
-        "repo": "squat-party-london",
-        "tags": ["squat", "london", "free-party", "hardcore"]
+        "name": "DJ Arrow",
+        "repo": "arrow",
+        "tags": ["bratislava", "drum&bass", "breakcore"]
     },
     {
-        "name": "DJ Rotwerk",
-        "repo": "dj-rotwerk",
-        "tags": ["dj", "acid", "techno", "producer"]
-    },
-    {
-        "name": "Freetekno Praha",
-        "repo": "freetekno-praha",
-        "tags": ["freetekno", "prague", "soundsystem", "tribe"]
-    },
-    {
-        "name": "Underground Pub Bratislava",
-        "repo": "underground-pub-bratislava",
-        "tags": ["pub", "bratislava", "underground", "live"]
+        "name": "Different Engine",
+        "repo": "different-engine",
+        "tags": ["dj", "techno", "prague"]
     }
 ]
