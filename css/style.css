@@ -205,6 +205,7 @@ main#central-content::-webkit-scrollbar-thumb {
 }
 
 .form-container input[type="text"],
+.form-container input[type="email"],
 .form-container textarea {
     width: 100%;
     background: rgba(0, 255, 65, 0.05);
@@ -219,6 +220,7 @@ main#central-content::-webkit-scrollbar-thumb {
 }
 
 .form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
 .form-container textarea:focus {
     border-color: var(--green);
     box-shadow: 0 0 12px var(--green-glow);

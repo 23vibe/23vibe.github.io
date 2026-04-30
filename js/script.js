@@ -1,4 +1,8 @@
 (function () {
+    // --- Config (replace placeholders before deploying) ---
+    const WORKER_URL = 'https://23vibe-contact.maxim-dokalenko.workers.dev';
+    const TURNSTILE_SITE_KEY = '0x4AAAAAADGl5AWBqFTYIFUe';
+
     // --- State ---
     let sections = {};
     let sitesData = [];
@@ -102,23 +106,53 @@
         html += `
             <div class="form-container">
                 <label>contact project author</label>
+                <input type="text" id="contact-name" placeholder="your name...">
+                <input type="email" id="contact-email" placeholder="your email...">
                 <textarea id="contact-msg" placeholder="your message..."></textarea>
+                <div id="cf-turnstile" style="margin-top:12px"></div>
                 <button id="contact-submit">submit</button>
             </div>`;
         contentArea.innerHTML = html;
         randomizeAlignment();
 
-        document.getElementById('contact-submit').addEventListener('click', function () {
+        if (window.turnstile) {
+            turnstile.render('#cf-turnstile', { sitekey: TURNSTILE_SITE_KEY, theme: 'dark' });
+        }
+
+        document.getElementById('contact-submit').addEventListener('click', async function () {
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
             const msg = document.getElementById('contact-msg').value.trim();
-            if (!msg) return;
-            // TODO: configure GitHub Actions workflow URL
-            // fetch('https://api.github.com/repos/23vibe/23vibe.github.io/dispatches', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ event_type: 'contact', client_payload: { message: msg } })
-            // });
-            this.textContent = 'sent!';
+            const token = window.turnstile ? turnstile.getResponse() : null;
+
+            if (!name || !email || !msg) return;
+            if (!token) {
+                this.textContent = 'complete captcha first';
+                setTimeout(() => { this.textContent = 'submit'; }, 2000);
+                return;
+            }
+
+            this.textContent = 'sending...';
             this.disabled = true;
+
+            try {
+                const res = await fetch(WORKER_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message: msg, turnstileToken: token })
+                });
+                if (res.ok) {
+                    this.textContent = 'sent!';
+                } else {
+                    this.textContent = 'error — try again';
+                    this.disabled = false;
+                    if (window.turnstile) turnstile.reset();
+                }
+            } catch (e) {
+                this.textContent = 'error — try again';
+                this.disabled = false;
+                if (window.turnstile) turnstile.reset();
+            }
         });
     }
 

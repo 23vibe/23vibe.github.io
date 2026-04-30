@@ -58,7 +58,7 @@ these terms may be updated. continued use means acceptance of changes.
 
 have a question, idea, or want to join?
 
-reach out to the project author below. [tbd soon]
+reach out using the form below.
 
 ## SEARCH
 
